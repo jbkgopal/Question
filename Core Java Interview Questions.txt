@@ -1,0 +1,2048 @@
+
+					OJT Mock Interview Questions
+
+1) what is JDK , JRE , JVM ? 
+
+Answer :- JDK (Java Development Kit) contains JRE and Some development tools like javac.exe (Java Compiler), java.exe , native2ascii.exe      
+
+	  JRE ( Java Runtime Enviroment ) contains jVM ( java virtual machine ) and some jars having some predefined classes and interfaces.
+	  
+	  JVM (Java Virtual Machine) is responsible for running our java program . It is different for different OS.
+ 
+	  JDK = JRE + some development tools like javac ( Java Compiler ) , java
+	  JRE = JVM + Predefined classes and interfaces ( library )
+	  JVM = A special program responsible for running our java program
+
+
+2) what is difference between continue , break ? 
+
+Answer :- break is used to treminate execution of loop whereas continue is used to skip some statement execution of current iteration and to go for next iteration .
+
+
+
+3) what is jar file ? How to use class from any external jar file ?
+
+Answer :- Jar file is a like zip file of Operating System . It contains packages having .class files of classes and interfaces .
+	  Zip file ==> Folders  ==> files
+	  Jar file ==> Packages ==> files (.class files of classes and interfaces).
+	  It means , Jar file is container where we group different packages having different classes & interfaces .
+	  To use any external jar file which is not part of JRE , we must keep such jar file in a build path .For that we need to
+	  right click on project name , then select build path , then select configure build path , then select libries tab , then 
+	  select external jar file and click on browse to select jar file.
+	  If external jar file option is not visble , click on classpath .
+
+4) How eclipse find out location of JDK installion folder ?
+
+Answer :- When we install JDK on windos , it is installed to program files folder by default. Eclipse checks these folder to find java folder . However new eclipse versions are coming with default JDK which they install automatically on our machine when we install eclipse . We don't need to install JDK separately .	
+
+
+5) Is JVM platform dependent ? 
+
+Answer :- Yes . JVM is different for different OS . when we submit .class file to JVM , JVM generates machine code specific to
+	current machine .
+	
+
+6) Tell me about naming conventions every java programmer must follow ?
+
+Answer :- class name & interface name should begin with upper case and every new word in it should begin with upper case .
+	  e.g. class DataInputStream , class ObjectOutputStream , interface HttpSession 
+
+	  variable name & method name should begin with lower case and every new word in it should begin with upper case .
+	  e.g. int myAge ; // primitive variable
+	       ArrayList arrayList ; // reference variable
+	       void setMyAge(int a);
+	       int getMyAge();
+		
+	 Constants should be written in uppercase letters only .words are seperated with _ ( underscore )
+	 public static final MAX_PRIORITY=10
+        
+
+	 
+7) what is variable ?
+
+Answer :- 	
+	Variable is a container where we store some value . 
+	e.g. int a=10; 
+
+	[ 10 ] a
+
+	So here variable a is used to store 10 value inside it . value stored in a variable keeps on changing . Hence it is called
+	variable . At a time only one value can be stored in a variable .
+	
+	a=20; // 10 will removed and 20 will be stored in variable a
+
+	Variable cab be thought as name of memory block where value will be saved .
+	
+	
+	
+8) What is general syntax of method ? explain with the help of example 
+
+Answer :-	method is a block of statements performing some tasks.General syntax to define method is :-
+		
+		return type  method name ( parameters )
+		{
+			// programming statements performing some task
+		}
+
+		int add(int a , int b)
+		{
+			int c;
+			c=a+b;
+			return c;
+		}	
+
+		a and b are called as arguments or parameters . we can write any no of arguments . Arguments means input to method
+		.method accepts this input , process it and generates output . 
+
+
+	// return type of deposit(int amount) is void means it will not return any value .
+	
+	void deposit(int amount)
+	{
+		balance=balance+amount;
+		
+	}
+	
+	// return type of withdraw(int amount) is int means it will return int value .
+	
+	int withdraw(int amount)
+	{
+		balance=balance-amount;
+		return balance;
+		
+	}
+	
+	
+9) Difference between local variable & global variable ?
+
+Answer :- local variable is available only within a block where it is declared whereas global variable is available everywhere inside 
+	  a class .global variables are declared at the start of class defination . local variables are defined inside method or 
+	  any other block like try block , catch block .
+	  global variables are of 2 types :- static and non-static .
+	   
+	 e.g. class Demo
+	      {
+			int a;
+			static int b;
+	
+		        void m1()
+		        {
+			     int c=10;
+			     System.out.println(a + " " + b); // a & b are global variables 
+			     System.out.println(c); // this will give error as c is local variable of method m1()
+			}
+		
+			void m2()
+			{
+				System.out.println(a + " " + b); // a & b are global variables 
+				System.out.println(c); // this will give error as c is local variable of method m1()
+			}
+	      }
+	  
+		
+10) Can we use return keyword in a method whose return type is void ?
+
+Answer :- yes , we can use it to end method execution , but we can not return any value .
+
+	class Test
+	{
+	
+              static void m1(int a)
+		{
+			if(a<0)
+			{
+				return; // ok
+				// return 20 ; // NOT ok
+			}
+			
+			System.out.println("Hello World");
+		}
+	
+		public static void main(String[] args)
+		{	
+			m1(10) ; // it will print Hello World
+			m1(-10) ; // it will NOT print Hello World as method execution will get over as a<0 condition will get true
+		                  // and return statement will execute which will stop execution of method
+		}
+	}
+
+
+11) If method returns value of type int , what type of variable we should declare to store that value ? is this process compulsory ?
+
+
+Answer :-   int type variable should be declared to store this return value .
+	
+		int add(int a , int b)
+		{
+			return a+b;
+		}	
+		
+		int answer = add(10,20);
+
+		Here we have declared answer variable of type int as add(-,-) gave 30 value which is int . It is NOT compulsory
+		to store return value of a method in a variable . 
+
+		System.out.println(add(20,30)); // we did not save return value here , just printed it .		 
+
+
+12) If method returns object then why do we define a reference pointing to that object ?
+
+Answer :-	  for calling methods from object we define reference .
+
+	   ArrayList<String>  arrayList = new ArrayList();
+	   arrayList.add("JBK");
+	   arrayList.add("JAVA");
+	   String s = arrayList.get(0); // s==> [ JBK length() toString() ]  String object
+	   s.length();
+	   s.toString();
+		
+	   get(0) will give String object having content JBK and some methods . To call these method we need to declare reference
+	   pointing to object . s is reference .
+
+	   without defining reference also we can call method ,however we can call only one method in such case
+	
+	    arrayList.get(0).length();
+	   
+
+13) If method return type is java.lang.Object then what type of object this method may return ?
+
+Answer:-It may return any type of object . e.g. ArrayList class has method get() whose syntax is
+	
+	Object get(int index) 
+
+	when we call this method , we may get Student class object if Student objects are present in ArrayList.
+	when we call this method , we may get Employee class object if Employee objects are present in ArrayList.
+
+
+14) Why type casting is required if method return type is java.lang.Object ?
+
+Answer:- Type casting is required so that we can call methods from child class . Reference of Parent class can call
+	 methods from parent class only and not child class methods .
+	 To call child class methods we need reference of child class only .
+	
+	  interface List
+	  {
+			 Object get(int index);
+	  }
+
+	  String s= (String) arrayList.get(1); // s==>[jbk length()] String class object
+		
+	  System.out.println(s.length());
+
+	  length() can not be called using reference of Parent class Object.
+
+	  whenever any method return type is Object , we should create reference of Child class using type casting
+	
+
+15) What is variable argument method ? what is difference between method with array argument and method with variable argument ?
+
+Answer :-  Variable argument method can be called by passing 0 or any no of arguments . However a method is defined with array 	   argument then compulsory we need to pass array or null value while calling that method.
+
+
+
+16) public static void main(String... a) is it write syntax for main method ?
+
+Answer :- Yes . variable argument is accepted here .
+
+
+17) void add(int a , int... b) is it right ? 
+
+Answer :- Yes . variable argumet cab be combined with normal arguments but in that case , we should write variable argument at the end
+
+
+18) when jVM calls main(String[] args) , does it pass String[] while calling it ?
+
+Answer :- Yes . If programmmer has pass any arguments from arguments tab of eclipse , JVM creates String[] using those arguments
+	  and pass it to main(String[] a) while calling it . 
+
+19) when we do not pass any program argument , what is size of String[] which is passed to main(String[] args)
+
+Answer :- If no arguments are passed , Still JVM creates an String[] array , but it is empty array . It's length is 0;
+
+
+20) Can we write any statement after return statement ? why ?
+
+Answer :- No , as return will end method execution . hence statements below return will not execute ever .
+
+
+21) why main() is declared as public ?
+
+Answer :- public methods can be called by any class from any package . main() is declared public so that it will be called by JVM which may be in any package . 
+
+
+22) why main() is declared static ? what would have happened if it was declared as non-static method ?
+
+Answer :- main() is declared static so that it will be called by JVM using classname and object is not required for calling it .
+	  we generally create object inside main() , and if main() was NON-static , we would need object to call it . So it would
+	  have been impossible to call main() .
+
+
+23) How to call main() of one class into another class ?
+
+Answer :- 
+
+		class A
+		{
+			public static void main(String[]  a)			
+			{
+				System.out.println(Arrays.toString(a));
+			}
+		}
+
+
+		class B
+		{
+			public static void main(String[]  a)			
+			{
+				String[]  b = {"Java" , "By" , "Kiran"};
+				A.main(b);
+			}
+		}
+		
+		run B class and observe that main() of class A is executed
+
+		
+24) can we overload main() and if done which version of it will be called ?
+
+Answer :- Yes , we can overload main() , However JVM will main(String[] a) . Other main() methods we need to call manually .
+
+
+25) Can we run class without main() ? When java progran execution gets over ?
+
+Answer :- No we can not run class without main() . when main() execution gets finished , we say java program execution is over .
+
+
+26) what is use of System.exit(0) ?
+
+Answer :- It is used to terminate java program .
+
+
+27) what is method recursion ? which exception may occur if we don't have controlled over recursion ? 
+
+Answer :- method recursion means calling method inside method defination . we should control how many times method will be called
+	  recursively otherwise StackOverflowError occurs .
+
+
+28) How to perform main() recursion ?
+
+Answer :-
+			public static void main(String[]  a)			
+			{
+			
+				// some statements
+
+				main(a); // calling main() inside defination of main() . 	
+			}
+			
+			
+29) what is use of break and return statement ?
+
+Answer :- break is used to end execution of loop and return is used to end execution of method.
+
+
+30) what is use of labelled loop ? 
+
+Answer :- we can assign name to loop also just like we assign name to variable , method .
+	  
+	  outer:
+	  for(;1<10;)
+	  {
+			
+	  }
+
+	  
+
+31) What is difference between while and do-while loop ?
+
+Answer :- while loop checks condition for every iteration . do while loop do not check condition for first iteration .
+
+
+32) what is difference between for each loop and for loop ?
+
+Answer :- for each loop is used generally to iterate over array and collection . for loop is general loop which can be used anywhere.
+
+
+33) Write syntax of for each loop . give one example
+
+Answer :-  General syntax of for each loop is :-
+	   
+	   for( type  variable : datasource )
+
+		int[] a = {10,20,30,'a'};
+		
+		// we have written int as this array contains int elements .
+				
+		for(int element : a )
+		{
+				
+				System.out.println(element);
+		}
+	
+
+
+34) int a=10; if(a) {  }  will it compile ?
+
+Answer :- NO. Only boolean value is allowed inside condition .
+
+
+35) How to define infinite loop ? where it is used ?
+
+Answer :- If loop condition is always evaluating to true , then loop becomes infinite loop.
+
+          e.g. while(true) {  }
+	       while(10>0) {  }	
+
+	such loops are used when we are not sure how many iteration loop will have and we want user to take control of 
+	when to stop loop iteration . 
+
+
+36) when else block and else if block is executed ?
+
+Answer :- Else if block condition is checked only if condition in if block is false . Then one by one all else if block condition is
+	  checked until any condition evaluates to true . However if none of the condition is evaluated to true then else block is 	  executed .
+
+
+37) can we write default case as a first case in switch statement ?
+
+Answer :- Yes , we can write default case anywhere in switch block .
+
+
+38) when default case is executed ? is it compulsory to write it ?
+
+Answer :- default case is executed only if none of the case is executed . It is not compulsory to have default case in switch block.
+
+
+39) which types of values are possible as a case value ?
+
+Answer :- int , char , String , enum type of values are possible as case value .
+
+
+40) what is an object ? what is state and behaviour of a object ? explain with one example
+
+object is instance of a class . object is any real time entity .
+Every object contains 2 things :-
+
+1) state of object :- value of instance variables  e.g.  eno=1 salary=1000
+2) behaviour of an object :- methods 
+
+public class Employee 
+{
+	int eno ;
+	int salary ;
+	
+	public Employee(int e, int s) 
+	{
+		
+		eno = e;
+		salary = s;
+	}
+	
+	public static void main(String[] args) {
+		
+		Employee e1 = new Employee(1,1000);
+		Employee e2 = new Employee(1,1000);
+		
+//e1(1000) ====>[eno=1 salary=1000] Employee class object  at address 1000
+//e2(2000) ====>[eno=1 salary=1000] Employee class object  at address 2000
+	
+		// 2 types variables:-
+		// 1. Primitive variable :- it stores value
+		//							int a=10;
+		// 2. Reference Variable :- It stores address
+		//                          e1 & e2 are reference variables because address is stored into them
+		
+		
+	}
+	
+}// class ends
+
+
+41) what is object reference ? what is stored in it ?
+
+Answer :-Reference Variable stores address into it .
+
+        e1 & e2 are reference variables because address is stored into them
+	
+	reference is used to access variables and methods from object.
+		
+
+42) using new and constructor object is created . true/false
+
+Answer :- true . new keyword is used to allocate memory at runtime for object . constructor constructs object by initializing variables from class . e.g. 
+        1) String s = new String("JBK"); here using new and constructor String class object is created .
+
+	2) object of predefined class Object can be created using it's default constructor (0-argument constructor)
+
+	Object o = new Object();
+
+	class Object is defined like below :-
+
+  public class Object 
+  {
+
+    /**
+     * Constructs a new object.
+     */
+  	 
+    public Object() {}   // It is constructor of class Object
+
+  }
+
+43) How to call non-static methods using object reference and anonymous object ?
+
+Answer :-  String s1 = new String("JBK");
+	   s1.length() ; // calling method using reference
+	   s1.toString();
+
+	   new String("java").length(); // calling method using anonymous object
+
+	   
+44) what is constructor ? explain in detail
+
+Answer :- 
+	  constructor is a special method whose name is similar to class name and it is used to initilize instance variables
+	  constructor method does not have any return type
+	  constructor constructs object 
+	  If no constructor is defined by programmer , compiler adds default constructor
+
+
+
+45) can we use static or protected for constructor ? 
+
+Answer :- static keyword is not applicable for constructor as constructor is related to object and static is related to class.
+	  However constructor can be protected , private ,public or even default . 
+
+
+46) can we write return statement in a constructor ?
+
+Answer :- Yes .
+
+
+47) when default constructor is added in java's class ? why is it added ?
+
+Answer :- If no constructor is defined by programmer , compiler adds default constructor . It is added by compiler as constructor is 	  required for object creation as constructor constructs object . we need to create object of a class to call non-static 	  members of a class and without constructor object creation is not possible . Hence it is added by compiler if not present .
+
+
+48) Can we create object of class without constructor ?
+
+Answer :- NO . However we can receive ( get ) object from certain methods , means method will create object and give it to us . e.g.
+	  newInstance() will create object for us and then give it to us . However we must remember that even newInstance() also 	  require constructor for object creation .
+
+
+49) what are different ways of obtaining object of java's class ?
+
+Answer :- There is only one way of creating java object and that is by using new and constructor . However we can get ( receive ) 	  object from different ways :-
+
+	  1) Class.forName("java.lang.String").newInstance() 
+	  2) In deserilization process , we get object .
+	  3) We get object by clonning process also . Employee e = (Employee)e1.clone()
+	  4) factory methods are also give object . e.g. Calendar c = Calendar.getInstance() . getInstance() will give object of a 	     child class of abstract class Calendar . we do not child class name . hence we have to create reference of parent class 	     Calendar . 
+	  5) In some cases , static block of a class also gives us object . e.g. In JDBC , com.mysql.jdbc.Driver class has a static 	     block which gives us object of Driver class itself
+
+	     class Driver
+	     {
+		static Driver driver = null;
+		static
+		{
+			if(driver==null)
+			{
+				driver = new Driver();
+				DriverManager.registerDriver(driver);
+			}
+		}			
+	     }
+
+	     This static block is executed when we call forName() and we get object of Driver class .
+
+	     Class.forName("com.mysql.jdbc.Driver");
+
+
+50) what is constructor overloading ?
+
+Answer :- Having multiple constructor methods with same name but different arguments is called Constructor overloading . e.g. String 	  class has 15 constructor .
+
+	  class String
+	  {
+		/* default constructor will create String class object with empty content */
+
+		String()
+	        {
+		}
+
+		String(String s) {   }
+
+
+		String(Char[] c) {   }
+		
+	  }
+
+
+51) which variable should be declared as non-static variable and which variable should be decared as static variable . explain with example
+
+Answer :- variables whose value depends on object should be declared as instance variable / object variable / non-static variable . 	  e.g. empId and salary of employees dependens on employee . However company name is not dependent on object . It is common to 	  all employee objects . hence companyName should be declared as static variable
+
+
+52) what is gloabl variable and tell me types of global variables ? 
+
+Answer :- global variable is available everywhere inside a class . global variables are declared at the start of class defination . 		  global variables are of 2 types :- static and non-static .
+	
+
+53) what is local variables ? which modifier we can apply to local variable ?
+
+Answer :- local variable is available only within a block where it is declared . local variables are defined inside method or 
+	  any other block like try block , catch block . for local variable ONLY final modofier is applicable.
+
+54) Difference between local and global variables ?
+
+Answer :- global variable is available everywhere inside a class . local variable is available only within a block where it is 	  	  declared . for global variable we can use all modifiers but for local variable ONLY final modofier is applicable .
+
+55) what is use of static block ? How many static block we can write in a class ? when it is executed ?
+
+Answer :- static block is used to initilize static variables . we can write any no of static blocks in a class . it is executed when 	  class is loaded into memory . it is executed even before main() method also.
+
+
+56) Which method 's call  prompts execution of static block ?
+	
+Answer :- Class.forName("com.mysql.jdbc.Driver")
+
+
+57) what is instance block ? what is difference between instance block and constructor ?
+
+Answer :- Constructor is used to initilize instance variables . instance block is used to perform some task which we want to do after 	  initilization . Constructor accepts arguments , instance block can not . Instance block executes before constructor .
+
+	
+58) Tell me use of final keyword in detail ?
+
+Answer :- final keyword is used at 3 places :-
+	  1) to declare constant e.g. final int a=10;
+	  2) to declare final method which can not be overriden in  child class . e.g. final void m1(){}
+	  3) to declare a final class which can not child classes . e.g. final class A { }  class B extends A is not possible as final 	  classes do not have child classes . In java String class , System class, all wrapper classes are declared as final class .
+
+
+59) which class other than String class is declared as final class ? 
+
+Answer :- In java String class , System class, all wrapper classes are declared as final class . 
+
+
+60) what is final object reference variable ?
+
+Answer :-  address stored in final reference variable can not be changed means this reference can not point to any other new object .
+	   final String s = new String("jbk"); // s(1000) ==>[jbk] String class object at address 1000
+	   s=new String("java"); // it will give error as s is final variable 
+
+61) final Employee e1 = new Employee(1,1000);
+    e1.salary=2000;
+
+    will this code run ?
+
+Answer :- Yes . as we are changing value present inside object and not address stored in reference varibale e1
+
+
+62) Tell me important methods from java.lang.Object class 
+
+Answer :- equals(), toString() , hashCode() , notify(),notifyAll(),wait(),clone() etc
+
+
+63) why java.lang.Object class's name is Object ?
+
+Answer :- as we can call methods from this class using any java object 
+
+
+64) Object getInstance()
+    {
+	return ---;
+    } 
+
+    which class's object can be returned by above method ?
+
+Answer :-  object of any java class 
+
+
+65) boolean equals(Object o) . Here why o aregument is declared of type Object ?
+
+Answer :- so that we can pass any java object to equals() . 
+	  equals(new String("java"));
+	  equals(new StringBuffer("java"));
+
+
+66) which class is super class of all classes in java ?
+
+Answer :- class Object . by default every java class extends this class.
+
+
+67) using reference of super class , we can call members of parent and child both . true / false
+
+Answer :- false , we can call parent class methods only using parent class reference .
+
+
+68) Is constructor inherited into child class ?
+
+Answer :- No 
+
+
+69) what is super keyword ? when it is compulsory to use it ?
+
+Answer :- super keyword is used to access super class members inside child class . super() is used to call super class ( parent class)
+	  constructor inside child class. when super class and sub class both have member of same name then use of super is compulsory 	  to call super class members.
+
+	  class A { int a=10; }
+	  class B extends A {int b=20 ;  void m1() { sop(this.a) ; sop(super.a) ;} }
+
+
+70) what is this keyword ? when it is compulsory to use it ?
+
+Answer :- this keyword is a reference which points to object of a class in which we have used this keyword. when local variables and 	  global variable names are same then we must use this with global variables
+
+71) can we use this and super in static context ?
+
+Answer :- NO as this and super are references which points to object means it is associated with object and static is associated with 	  class
+
+
+72) can we change static variable value ? 
+
+Answer :- Yes unless it is final .
+
+
+73) why constants are generally declared static final in java ?
+
+Answer :- If constants are declared static means all objects will have same value for that final variable . Hence compiler replaces 	  name of static variable , whenever it is used , with it's value . Hence class loading of class whose static variable it is , 	  is not required , hence memory is saved .
+
+	 class A
+	 {
+		public static final int x=10;
+	 }
+
+         class B
+	 {
+		void m1()
+		{
+			System.out.println(A.x);// this statement will be replaced by System.out.println(10) by compiler
+						// Hence loading of class is not required 
+		}
+	 }
+
+
+74) which super class constructor is called by default from child class constructor , default or parameterized constructor ?
+
+Answer :-  by defualt , default constructor of parent class is called from child class constructor 
+
+
+75) Why multiple inheritance is not possible in java using classes ? How to achieve it ?
+
+Answer :- one class can extends ONLY ONE class . One class can have only one Parent class .
+	  class A {}  class B {}
+	  class C extends A , B  . Not possible  . So let's declare class B as interface B
+	  interface B { }
+	  class C extends A implements B
+
+
+76) static members are inherited into child class . true / false.
+	
+Answer:- true
+
+
+77) what is polymorphism ? Types of polymorphism ?
+
+Answer:- polymorphism is an ability to exist in multiple forms . 
+	 There are 2 types of polymorphism :-
+	 1) compile time polymorphism
+	 2) run time polymorphism
+
+78) why method overloading is called static binding ?
+
+Answer :- having multiple methods with same name but different arguments is method overloading .It is an compile time 	  	  polymorphism/early binding/staic binding as method call is bound with method definition based on arguments 
+
+79) why method overriding is called dynamic binding ?
+
+Answer :- redefining method of parent class in a child class , is called method overriding
+	  polymorphism :- ability to exist in multiple forms
+ 	  method overriding is run time polymorphism because which method will called is decided at runtime based on object.
+ 	  
+ 	  	
+
+80) static method , final method  , private method can not be overrident in child class . true/false
+
+Answer :- true . static method / final method / private method of parent class can not be overriden . 
+
+
+81) can we have same private method in parent and child class ?
+
+Answer :- yes . private methods are not inherited into child class .
+
+
+82) what is method hiding ?
+
+Answer :- In parent class and Child class , if we have static method with same signature it is called method hiding .
+
+
+83) what is method signature ?
+
+Answer :- method signature means name of method and arguments . return type is not considered in it .
+
+
+84) difference between overloading and overriding ?
+
+Answer:-overloading is associated with single class , whereas overriding is associated with parent and child class . overloading is compile 	   	time polymorphism as method call is bound with method defination at compile time based on arguments . whereas method overriding is run 	time polymorphism because which method will called is decided at runtime based on object. In orverloading method signture must be 	different whereas in overriding method signature must be same . return type is not considered in overloading whereas in overriding 	return type must be same or covarient .
+
+85) what is covarient return type ?
+
+Answer:- In place parent type return type , we can child type return type in overriding , it is called co-varient return type .
+
+	  class A
+	  {
+		Object m1() { }
+	  }
+
+	  class B extends A
+	  {
+		String m1() { }
+	  }
+
+	  
+	
+86) what is variable argument method ? can we have 2 variable arguments in one method ?
+
+Answer:-Variable argument method can be called by passing 0 or any no of arguments . we can't have method with 2 variable arguments.
+
+
+87) m1(int a , String... b) is it write ?
+
+Answer:- yes . Variable argument should be at the end of list of arguments .
+
+
+88) what is abstratcion ? how it is achieved in java ?
+
+Answer:- abstraction means exposing only required things about abstract methods and not showing implementation details of these methods . 	 abstraction in java is achieved by abstract class and interface .e.g. JDBC API contains certain interfaces which are defined by Driver class . Programmer calls methods from these interfaces . But they do not know implementation of these methods .e.g. we call next() from ResultSet interface , but we don't know implementation of next () . This is abstraction .Sun people exposed methods through interface but they didn't reveal implementation of theses methods as we don't need to know it . 
+
+
+89) what is interface ? tell me where you have used it in your project .
+
+Answer:-interface is a collection of abstract methods ( undefined methods ) . abstraction means method implementation details will not be exposed.only method signature will be exposed .method signature means name of method and arguments of method. All methods from interface are public and abstract by default.
+
+we can use interface to define DAO ( Data Access Object ) interface .
+
+interface EmployeeDAO
+{
+	void addEmployee(Employee employee);
+	Employee getEmployee(int empId);
+	
+}
+
+90) why interface constants are declared as static final and not just final .
+
+Answer:- So that they will be accessed by interface name . Declaring constants static also save memory .
+
+
+91) why interface methods are by default public and abstract ?
+
+Answer:- interface methods are public so that anyone can implements it in any package . By default interface methods are abstract because interface provides 100% abstraction by providing all abstract methods whereas in abstract class , there are some defined methods also .
+
+
+92) Is it compulsory to define all methods from interface in implementation class ? 
+
+Answer:- Not compulsory but then we need to define implementation class as abstract class as it will abstract method .
+
+
+93) can we use any other access modifier than public while defining interface methods in a implementation class .
+
+Answer:- Not possible as interface methods are public and if we use any other access modifier then it will lower visibility of these methods.
+
+
+94) why do we declare interface reference and not reference of it's implementation class ?
+
+Answer:- Because we know interface name but we do not know it's implementation class .
+
+
+95) can we have 2 methods with same signature but different return type in 2 different interfaces for which we are writing implementation class ?
+
+Answer :- not possible as implementation class can not have 2 methods with same signature .
+	  interface A { void m1() }
+	  interface B { char m1() }
+
+	  class C implements A,B not possible as it will contains 2 methods with same signature which is not allowed .
+	  
+	  interface A { void m1() }
+	  interface B { void m1() }
+
+	  class C implements A,B { void m1() { } } is right.
+	  
+
+96) what is abstract class ? why abstract class contains constructor ? when is it called ?
+
+Answer :- Abstract class can contain abstract and concrete both methods. Concrete methods have definition . abstract methods does not have definition .
+	  We can't create object of abstract class . But we can create abstract class's subclass object . Abstract class's child class constructor calls constructor of 	  Parent abstract class .
+
+97) what is difference between interface and abstract class in jdk1.8 
+
+Answer :-  Subclasses of abstract class must define abstract method from abstract class .
+  	   When we have objects with some common behaviour and some uncommon behaviour , go for abstract class .when we have only uncommon behaviour , go for interface .
+	   interface does not have constructor but abstract class have constructor . interface contains only constants but abstract class can contains constant and plain variables also .
+
+
+98) Can we create object of abstract class and interface ? why ?
+
+Answer :- No as their defination is not complete as it contains some abstract ( undefined ) methods .
+
+
+99) Why do we declare reference of parent abstract class which points to it's child class object , why not have child class reference
+
+Answer :- because in real time , we know abstract class name but don't know it's child class names .
+
+
+100) Tell me any one abstract class from JDK ?
+
+Answer :-  Calendar class , InputStream , OutputStream 
+
+
+101) why do we override toString() in every java class ?
+
+Answer :- to return object's data / object's state
+
+
+102) why do we override equals() and hashcode() in java class ? 
+
+Answer :- When we want to have same hashcode for objects having same contents , then we must implement equals() and hashcode() both . 
+
+
+103) what is difference between toString() and deepToString() ?
+
+Answer :- toString() gives 1D array's all elements and deepToString() gives 2D array's all elements
+
+
+104) what is encapuslation ? what is  java bean class ?
+
+Answer :- encapuslation is process of grouping variables and methods acting on those variables , into one unit called class . Encapsulation suggest to make variables private and define public setter and getter methods , using which variables can be accessed . java bean class is pure encapuslated class as it contains private members and public setter and getter methods . using setter methods , we can control which value can be applied to member variable . 
+
+105) when we should write setter and getters methods in java class ?
+
+Answer :- when class contains private variables , we should define public setter and getter methods to access these private variables .
+
+
+106) what is is-a and has-a relationship ?
+
+Answer :- is-a means inheritance and has-a relationship is based on usage than inheritance . when we want to access members of any class and if our class don't have any is-a relationship with that class , we can use has-a relationship to define reference of that class in our class .
+          
+
+107) what is difference between aggregation and composition . 
+
+Answer :- In composition , if container object is destroyed then contained object is also destroyed means it is tight coupling . e.g
+
+	  class Room {   }   class Teacher {  }
+
+	  class School
+          {
+		Room room = new Room(); // here object is created . It is Composition
+	  }
+	
+	  If School object is destroyed then Room object will also be destroyed .
+
+          class School
+          {
+	      Teacher teacher; // here object is declared not created . It is aggregation
+          } 
+
+	  If School object is destroyed then Teacher object will NOT be destroyed as it not stored inside School object .
+
+          
+108) what is an array ? How to get/read any element from an array ?
+
+Answer :- array is a special variable which can store multiple values in it . To read array elements we can use any loop .
+
+
+109) why array is called type safe ?
+
+Answer :- as it contains elements of same type only .
+
+
+110) int[] a ={10,20,'d'}; is it correct ?
+
+Answer :- Yes . 'd' ascii value 100 will be stored here .
+
+
+111) How to find out class name of a class which is created internally for java array ?
+
+Answer :-  int[] a ={10,20,'d'}
+
+	   String className = a.getClass().getName();
+
+
+112) getClass() is defined in which class ? why ?
+
+Answer :- in Object class . It is defined in Object class so that it will be available to all java classes .
+
+
+113) can we change size of an array ?
+
+Answer :- Not possible as array is fixed size .
+
+
+114) what is difference between capacity of an array and size of an array ?
+
+Answer :- capacity means how many objects will be saved in an array and size means actual number of elements stored in an array .
+
+
+115) what is jagged array ?
+
+Answer :-  jagged array means no of rows fixed but no of columns not fixed .
+	   e.g. int[] a = new int[3][];
+		
+
+
+116) Two dimensional array can be imagined as table having rows and columns and each row from this table is an single dimensional array . true / false.
+
+Answer :- true
+
+
+117) what is exception handling ? is it achieved using try and catch block or throws keyword ?
+
+Answer:-Exception is runtime error ; when exception occurs program is terminated abnormally .
+ 
+ 	Preventing abnormal termination of a program due to exception occurrence is Exception Handling .
+		
+ 	In try block we should write error prone statements .
+		
+ 	when exception occur in try block , program control is shifted to catch block
+		
+ 	Hence We should write user friendly error messages in catch block .
+	
+	throws is used to delegate responsibilty of exception handling to caller of a method
+
+
+
+118) Difference between checked and unchecked exception ?
+
+Answer :- checked exception is that exception which must be handled using try and catch block or else we get compile time error stating that you must handle this exception . When you handle exception only then compiler let you go for execution .  e.g. ClassNotFoundException
+unchecked exception handling is optional . e.g. NullPointerException .
+
+
+119) difference between Exception class and Error class ?
+
+Answer :- Exception occurs due to problem in programmer's logic . whereas Errors occurs due to problem in system in which program is running .
+e.g. NullPointerException occurs due to programmer's fault whereas OutOfMemory Error will occur due to problem with JVM . Errors normaly can not be recovered but exception can be handled .
+
+
+120) Difference between throw and throws keyword ?
+
+Answer :- throw is used to raise exception programatically whereas throws is used to delegate exception handling responsibility to caller method
+
+
+121) can we rethorw exception which is already handled ?
+
+Answer :- Yes , it is possible rethrow exception which is already handled .
+
+
+122) In multiple catch block series , catch(Exception e) should be written at the start or end ?
+
+Answer :- At the end .  Because if we write somewhere else we get compile time error .
+
+
+123) What is alternative way for writing multiple catch block ?
+
+Answer :- From JDK 7 , java allows you to catch multiple type exceptions in a single catch block.  You can use vertical bar (|) to separate multiple exceptions in catch block. It is alternative way to write multiple catch block to handle multiple exceptions
+
+			catch(NullpointerException npe | ArithmaticException ae | IOException ioe) {   }
+
+
+124) what is try with resource statement ?
+
+Answer :- The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. 
+
+BufferedReader is a resource that must be closed after the program is finished with it:
+
+static String readFirstLineFromFile(String path) throws IOException 
+{
+    try (BufferedReader br = new BufferedReader( new FileReader(path) ) ) 
+    {
+        return br.readLine();
+    }
+}
+
+In this example, the resource declared in the try-with-resources statement is a BufferedReader. The declaration statement appears within parentheses immediately after the try keyword. 
+
+
+125) why we must call printStackTrace() in catch block ? 
+
+Answer :- printStackTrace() method print details about exeption on console . It tells us in which method , at which line no exception occured. It also tells us exception class name and display error message . By reading this information , programmer takes corrective action .
+
+
+126) what is difference between getMessage() and printStackTrace()?
+
+Answer :- getMessage() gives us only error message of exception , whereas printStatckTrace() gives more details of exception like exact location where exception occured , exception class name and error message also .
+
+127) why NullPointerException occurs ? how to avoid it ?
+
+Answer :- Whenever we call any member of a class , using null reference , NUllPointerException occurs .
+	  e.g. String s=null;	--(1)
+	       s.length(); 
+	      replace line no 1 by to avoid NullPointerException. Make reference point to some object so that exception will not occur .
+		String s = new String("JBK");
+		
+
+128) when ClassCastException occurs ?
+
+Answer :- It occurs when we try to type cast parent object to child object . e.g.
+
+	  Object o = new Object();
+	  String s =(String)o;
+	  
+	  Here we will get ClassCastException as we are trying to create reference of child class by type casting which we want to point to parent object which is not possible . Parent class reference can point to it's child class object but reverse is not possible .
+
+	  Object o = new String("JBK");
+	  String s =(String)o;  // it is right
+	  
+	
+
+129) what is difference between NoClassDefFoundError and ClassNotFoundException ?
+
+Answer :- NoClassDefFoundError is child class of Error hence it is unchecked and occurs due to system related issue . It is raise automatically by JVM , whenever JVM don't find required class . e.g. java Employee  and if Employee.class file is not by JVM then JVM raises NoClassDefFoundError.
+
+ClassNotFoundException is checked exception . It occurs when JVM fails to load required class , after scanning all jar files in classpath .
+
+
+130) what is return type of read() of FileInputStream class ?
+
+Answer :- int . read() returns ascii value of char which is read .
+
+
+131) File f= new File("abc.txt"); This statement will create abc.txt file in disk . true/false.
+
+Answer :- false .
+
+
+132) what is use of FileInpuStream and FileOutputStream class ?
+
+Answer :- FileInpuStream is used to read file content . FileOutputStream is used to write content into file . file can be of any type text or non-text file .
+
+
+133) why stream should be always closed in finaly block and not try block or catch block ? is their any other way to do it ?
+
+Answer :- There is no gurantee that all statements from try block will execute . Hence it is suggested that we should not close stream in try block .
+we should do it in finally block which executes always irrespective of exception occurance . From JDK 7 , we can use try with resource statement , which automatically closes resource (file) . No need to call close() .
+ 
+
+134) what is serlization and deserilization ?
+
+Answer :- serlization is process of writing object's contents into file . Using serlization we save object's state / object's data in a file . e.g. Employee e = new Employee(1,1000) . eno=1 , salary=1000 is a object's state , we use serlization to save this object's state into file . deserilization is process of reading object's contents from file and constructing new object using that content .
+
+135) What is tagging interface or marker interface . give examples
+
+Answer :- interface which does not have any method is called marker / tagging interface . e.g. clonable , serilizable interfaces are marker interfaces.
+
+136) what is transient keyword ?
+
+Answer :- transient keyword is used for that variable whose value we do not want to serilize .
+
+137) what is difference between transient object and persistant object ?
+
+Answer :- transient object is stored in memory as long as program is running . Once program execution is over , it is not available in a memory . whereas persistent object's contents are stored in some storage media like file , database , so that it can be read afterwards . such objects are called persistent objects . Serilization , JDBC , Hibernate are different ways to achieve it .
+
+
+138) what is importance of serialVersionUID ?
+
+Answer :- serialVersionUID must be declared as private static final long variable . If used , we don't get new uid each time we change serilized class defination .
+
+
+139) Is constructor called in the process of Deserlization ?
+
+Answer :- NO.
+
+
+140) 1) long a=456L 2) long a=456l . which statement is correct ? 
+
+Answer :- Both are correct .
+
+
+141) what is difference between float and double ?
+
+Answer :- double is more precise than float , as float stores more decimal values than float . double size is 8 byte whereas float size is 4 byte .
+	  by default every decimal value is considered double in java . to make decimal value float , we must use letter f . e.g. float a = 3.2f;
+	  float b=4.5 will give error as 4.5 will be considred as double and without type casting it is not possible to store double value in float 	  variable .  
+
+
+
+142) why is it required to write f letter for floating values in case of float data type ?
+
+Answer :- by default every decimal value is considered double in java . to make decimal value float , we must use letter f . e.g. float a = 3.2f;
+	  float b=4.5 will give error as 4.5 will be considred as double and without type casting it is not possible to store double value in float 	          variable . 
+
+
+
+143) why character data type size is 2 bytes in java ?
+
+Answer :- Java support Unicode which support many languages . Hence it needs more memory . hence char data type size in java is 2 bytes , whereas language like C support ASCII character set which support only English language .
+
+
+144) what is Collection ? difference between array and collection in detail
+
+Answer :- Collection is used to group objects in one container . It can group any no of objects .
+
+Collection is for ONLY objects and not for primitives
+Array is for both objects and primitives
+Array is fixed size whereas Collection is not fixed size .
+		 
+Collection is called framework because it provides predefined methods for some common operations like to add object in a collection we have add(Object o) method , to remove object from a collection we have remove(Object o) method
+		 
+Array does not have such predefined methods
+		
+Array is a type safe .
+		 
+int[] a = {1,2,3.5f}; it will give error float value can't be stored in int array
+		
+		
+Collection is NOT type safe as it can accept any type of objects.
+		
+		 
+145) which methods are declared in Collection interface ?
+
+Answer:-
+
+	 interface Collection
+		 {
+			int size();
+			boolean clear();
+			boolean remove(Object o)
+			boolean add(Object o)
+			boolean addAll(Collection c)
+			boolean removeAll(Collection c)
+			boolean contains(Object o)
+			boolean isEmpty()
+			Iterator iterator()
+			Object[] toArray();
+			
+		 	default Stream<E> stream() '
+		 	{
+        		return StreamSupport.stream(spliterator(), false);
+    	 	}
+        }
+
+
+
+
+146) What is difference between Collection and Map interface ?
+
+Answer :- Collection is for grouping single objects whereas Map is for grouping pair of objects
+
+
+147) How add() of Collection interface is implemented differently in ArrayList and HashSet class ?
+
+Answer :- add() of Collection interface is implemented in ArrayList to accept duplicates whereas in HashSet it is implemented to NOT accept 	  duplicates . 
+
+
+148) Diffference between ArrayList and LinkedList class ?
+
+Answer :- ArrayList should be used when frequent operation is retrieval of object whereas LinkedList should be used when frequent operation is insertion or deletion in the middle of list . 
+
+
+149) What is difference between Set and List ?
+
+Answer :-
+	List accepts duplicates , Set do not.
+	List has index , Set do not have index.
+	List provides Random Access using index 
+	List preserve insertion order  but Set do not .
+
+
+
+150) does set  contain index ?
+
+Answer :- NO
+
+
+151) What is difference between Generic and Non-Generic Collection ?
+
+Answer :- NON-Generic Collection is NOT type safe as it can accept any type of objects.Hence type casting is  required
+
+	  Generic Collection is type safe . Hence type casting is not required 
+ 
+
+152) When HashSet should be used?
+
+Answer :- to stote unique objects , hashset should be used .
+
+
+153) When TreeSet should be used ?
+
+Answer :- to sort unique objects , TreeSet should be used . 
+
+
+154) what is difference between HashSet and LinkedHashSet ?
+
+Answer :- HashSet does not preserve insertion order whereas LinkedHashSet preserve insertion order .
+
+
+155) What is difference between comparable and comparator interface ?
+
+Answer :-
+
+  Comparable interface given natural sorting order and If we want custom sorting , then we need to use Comparator interface
+  
+  Comparable interface gives SINGLE sorting sequence and Comparator gives multiple sorting sequence
+  
+  comparable is from java.lang package and Comparator is from java.util package
+  
+  String class has already implemented Comparable interface to sort String objects aplhabatically . default sorting of String objects is alphabatical sorting . 
+  
+  But if we want to sort String objects based on length of String then we need to go for Comparator interface
+
+
+156) What is use of Collections and Arrays class ?
+
+Answer :- These classes contains some utility methods for array and collection . e.g. To sort an array , Arrays class contains sort() method , To sort collection, Collections class contains sort() method .
+
+ 
+157) What is use of keySet() in map ?
+
+Answer :- keySet() gives Set object which contains all keys from the map .
+
+
+158) what does values() returns ?
+
+Answer :- values() gives Collection , which contains all values from map .
+
+
+159) what is use of get(Object o) in map ?
+
+Answer :- get(Object key) accept key and gives value associated with key .
+
+ 
+160) what is Map.Entry ? How do we get object of it ? 
+
+Answer :- Map.Entry is a nested interface , which represent entry of map . To get it's object , we call entrySet() .
+
+
+161) what is difference between remove(int index) and remove(Object o) in arraylist ?
+
+Answer :- remove(int index) will accept index of object which we want to remove from ArrayList whereas remove(Object o) need object itself .
+
+
+162) which map should be used when you want to have sorted entries ?
+
+Answer :-TreeMap sort entries based on key's value . 
+
+
+163) which map should be used when you want to preserve insrtion order based on keys ?
+
+Answer :- LinkedHashMap should be used when you want to preserve insrtion order based on keys . 
+
+
+164) Every class which is used as a Key in HashMap , must implements equals() and hashcode(). why ? 
+
+Answer :- Key in hashmap should be unique . If two key object's contents are equals then their hashcode must be eqaul so that hashmap will not accept duplicate keys . But for this equals() and hashCode() must have been implemented by key .
+
+
+165) What advatntages we get with generic collection ?  
+
+Answer :- Generic Collection allows only Homegenous ( same type ) objects . Hence we don't require type casting as generic makes collection type safe .
+
+
+166) ArrayList<int> will it work ?
+
+Answer :- NO as type parameter only class name works but no primitives are supported .
+
+
+167) ArrayList<? extends Number> which objects can be used as type parameter here ?
+
+Answer :- Any class which extends Number class like Integer , Float can be used here as a type parameter .
+
+
+168) Generic is a compile time feature or runtime feature ?
+
+Answer :-  Generic is a compile time feature . e.g.
+
+	   ArrayList<Integer>  arrayList = new ArrayList(); 
+
+	   at right side of = symbol after constructor name we don't need <Integer> as it is new ArrayList() will be evaluated at runtime , compiler is not bothered about it . 
+            
+	   Here we are informing compiler that we are going to add Integer class objects in ArrayList . Hence compiler will allow only Integer type objects and not any other object.
+
+	  arrayList.add(new Integer(10))
+	  arrayList.add(new Integer(20))
+	  arrayList.add(new String("JBK"))  // compile time error
+
+
+	  ArrayList<Object>  arrayList = new ArrayList();	  
+	  arrayList.add(new Integer(10))
+	  arrayList.add(new Integer(20))
+	  arrayList.add(new String("JBK"))  // NO compile time error as all java classes are child classes of Object class 
+
+	  
+	
+169) when you write ArrayList<String> , what message you convey to compiler and which restrictions are followed after this 
+
+Answer :- Here we are informing compiler that we are going to add String class objects in ArrayList . Hence compiler will allow only String type objects and not any other object.
+
+
+170) class MyClass<T>  , class MyClass<P> which is correct way of defining  Generic class ?
+
+Answer :- Both as any Letter can be used as a Type Parameter while defining generic class .
+
+
+171) what is generic method ?
+
+Answer :- generic method is a method which is not bound to any type . 
+	  e.g. class ArrayList<T>
+	       {
+		   T get(int index);
+               }
+
+	  here get(-) can return any type of object , hence it is generic method .
+
+
+172) Tell me about Arrays.copyOf(-) method .
+
+Answer :- Arrays.copyOf(-) allows you to simply copy content of one array into another array . new copied array can have greater or lower size than size of original array .
+
+
+		int[] a = {10,20};
+		
+		int[] b=Arrays.copyOf(a,4); // copyof() will give us new array with length 4
+		
+		System.out.println(Arrays.toString(b));// [10, 20, 0, 0]
+		
+		
+		int[] c=Arrays.copyOf(a,1); // copyof() will give us new array with length 1
+		
+		System.out.println(Arrays.toString(c));// [10]
+		
+
+
+173) what is difference between & and && .
+
+Answer :- & checks both condition even if first condition is false whereas && will check second condition only if first condition is true . Hence && is called logical and operator . for and , we need both condition true for true result .
+
+System.out.println((10<2) && (10/0==0) ); // no exception will occur as second condition will not be evaluated as first condition is false
+		
+System.out.println("All is well");
+
+But if we replace && by & , then exception will occur .
+
+
+174) what is Properties class and properties file ?
+
+Answer :- Properties file contains some configuration related data in the form of key-value pair . e.g. we can specify database connection related details in properties file . In java program , we use Properties class's load() to load these properties in java program .
+
+
+175) Tell me about Legacy classes from java collection framework ?
+
+Answer :- HashTable , Vector are called as legacy classes because they are in JDK since 1.1 version . Collection framework was introduced in 1.2 version . All legacy classes were synchronized ( Thread Safe ) . 
+
+
+176) How to obtain synchronized version of ArrayList class ?
+
+Answer :- Collections.synchronizedList(List list) will accept asynchronized List and convert it into synchronized List .
+
+
+177) What is EnumSet ?
+
+Answer :- Set which contains Enum as it's members is called EnumSet .
+
+
+178) why do we convert Collection into stream .
+
+Answer :- To utilize methods given by Stream interface , we need to convert Collection into Stream .
+
+
+179) Which methods are present in Stream interface ?
+
+Answer :- Stream interface contains methods like filter() , map(),reduce() , max(),min() etc
+
+
+180) what is functional interface ?
+
+Answer :- functional interface contains single abstract method .
+
+
+181) What is use of Lambda Expression ?
+
+Answer :- Lambda expression is used to define abstract method from functional interface without writing any class . It's syntax is :-
+	  (arguments) -> defination of method
+
+
+182) what is method reference ?
+
+Answer :-method reference is used to reuse defination of existing method instead of defining same defination using lambda expression .
+
+	e.g. 	Here we want to convert String to Integer , for this functional defination which is required is already present in valueOf() .
+		hence no need to use lambda expression to define new function defination .
+ 
+	// map() will valueOf()  to each string from stream and convert String into Integer
+		
+	List<String> lists=Arrays.asList("10","20","30");
+		
+	Stream<Integer> stream=lists.stream().map(Integer::valueOf);// Integer.valueOf("10") Integer.valueOf("20") Integer.valueOf("30")
+		
+
+
+
+183) what is predicate interface ?
+
+Answer :- predicate interface is a functional interface . It contains single abstract method boolean test(Object o) .
+
+	  predicate interface object is passed as a arguement to filter method . 
+
+
+184) what is use of filter() from stream 
+
+Answer :- filter() is used to filter stream based on some condition .
+
+
+185) Tell me example of reduce() of Stream interface ?
+
+Answer :-  It is like aggregate functions of SQL . It apply some function to members from collection and gives us single value as a result .
+
+	   	List<Integer> al4 = Arrays.asList(1,2,3,4);
+		al4.forEach(System.out::println);// method reference
+	
+		Optional op=al4.stream().reduce((no1,no2)->no1+no2);
+		
+		if(op.isPresent())
+			System.out.println(op.get());  // it will print 10 which is addition of 1,2,3,4
+	
+
+186) what is difference between map() and flatMap()?
+
+Answer :- map() is used to apply some functionality to every member from collection . 
+	FlatMap can be used to convert Collection<Collection<T>> to Collection<T> . It means it is used to convert List of List to single List
+	  	
+		// map applies function to each element from stream
+		
+		List<String> lists=Arrays.asList("10","20","30");
+		
+	Stream<Integer> stream1=lists.stream().map(Integer::valueOf);// Integer.valueOf("10") Integer.valueOf("20") Integer.valueOf("30")
+		
+		List<Integer> resultList=stream1.collect(Collectors.toList());
+		
+		System.out.println(resultList);
+		
+
+		List<Integer> list1=Arrays.asList(1,2,3);
+		List<Integer> list2=Arrays.asList(4,5,6);
+		List<Integer> list3=Arrays.asList(7,8,9);
+		
+		List<List<Integer>> listOfList=Arrays.asList(list1,list2,list3);
+		
+		System.out.println(listOfList);
+		
+List<Integer> flatResult=listOfList.stream().flatMap(list->list.stream()).collect(Collectors.toList());
+		
+		System.out.println(flatResult);	
+
+
+187) what is IdentityHashMap ?
+
+Answer :- In IdentityHashMap , keys are unique or not is checked based on identity ( references ) . In HashMap it is checked based on equals() and hashCode() .
+
+
+188) tell me about 3 cursor which are used to iterate collection .
+
+Answer :- Itertor , ListIterator , Enumeration . 
+
+
+189) Tell me Arrays.asList(-) use
+
+Answer :- It is used to create list which is having fixed no of objects .
+
+	  List<Integer> al = Arrays.asList(1,2,3,4);
+
+
+190) Tell me about forEach() method
+
+Answer :- forEach() method can be used to iterate objects from collection .
+	  List<Integer> al = Arrays.asList(1,2,3,4);
+	  al.forEach(System.out::println);
+
+191) What is difference between iterator and spiltIterator ?
+
+Answer :- Iterator iterate objects from collection one by one . SplitIterator divides ( splits ) list into smaller parts .Then this parts are processed in parallel .
+		
+		List<Integer> al = Arrays.asList(1,2,3,4);
+		
+		Spliterator<Integer> splitIterator=al.spliterator();
+		
+		splitIterator.forEachRemaining(System.out::println);
+		
+		
+		Iterator<Integer> iterator=al.iterator();
+		
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next());
+			
+		}
+
+192) what is package in java ? what are advatages of packages ?
+
+Answer :- package is a like folder of OS where we group .class files of classes & interfaces . It java's way of grouping related classes together.
+
+advatages of packages are :- 
+  
+  organisation of classes and interfaces becomes easy
+  can group related classes together  
+  Searching of classes becomes easy
+  we can have 2 classes with same name in 2 different packages
+
+
+193) what is jar file ? Tell me command to create jar file and also to extract jar file
+
+Answer :-    Jar file contains packages . packages contains classes
+   e.g. java has given us rt.jar file which contains packages like java.lang , java.util, java.io
+   these packages contains classes like String class , ArrayList class etc.
+
+  jar -cf abc.jar p1 p2
+
+  here cf means create jar file
+  abc.jar is name of jar file
+  p1 and p2 are packages which we want to add in a jar file.
+
+ To extract jar file , use ,  jar -xf abc.jar  
+
+
+194) How to use external jar file in our project ?
+
+Answer :-Keep external jar file in a build path and then import class and use it
+   e.g. In JDBC application , we keep mysql jar file in a build path and use
+   Driver class from this jar file
+
+
+
+195) How to use java.sql.Date and java.util.Date both classes in one java program ?
+
+Answer :- one class we will import e.g. import java.sql.Date
+          for another class we will use fully qualified name of a class java.util.Date
+
+
+
+196) Which access modifiers should be used if you want your class's members accessible outside package also 
+
+Answer :- public and protected 
+
+
+197) why main() is declare public and not protected ? who call main() ?
+
+Answer :- public methods can be called by any class from any package . main() is declared public so that it will be called by JVM which may be in any package . 
+
+
+198) Object o = new Object() ; o.clone(); Is it correct ?
+
+Answer :- No. Protected members are visible inside package anywhere and outside package they are available inside child classes only . But we can not call them using object of Parent class and we have to use object of Child class only .
+
+
+199) What is clonnable interface ? why clone() is declared inside Object class ?
+
+Answer :- clonnable interface must be implemented by a class whose object we want to clone .  clone() is defined in Object class so that it can be called by any java object who wants clonning .
+
+
+200) What is difference between default modifier and protected modifier ?
+
+Answer :- 
+   Protected members are visible inside package anywhere and outside package they are available
+   inside child classes only
+   default members are visible inside package ONLY
+
+
+201) what is shallow clonning and deep clonning ?
+
+Answer :- The shallow copy of an object will have exact copy of all the fields of original object. If original object has any references to other objects as fields, then only references of those objects are copied into clone object, copy of those objects are not created. That means any changes made to those objects through clone object will be reflected in original object or vice-versa.
+
+Deep copy of an object will have exact copy of all the fields of original object just like shallow copy. But in additional, if original object has any references to other objects as fields, then copy of those objects are also created by calling clone() method on them. That means clone object and original object will be 100% disjoint. They will be 100% independent of each other. Any changes made to clone object will not be reflected in original object or vice-versa.
+
+
+202) what is nested classes and nested interface ? 
+
+Answer :- when we define one class inside another class , it is nested class . when we define one interface inside another class , it is nested interface . 
+e.g. 		
+		interface Map
+		 {
+			interface Entry
+			{
+
+			}
+		 } 
+
+		
+
+203) How many objects of Anonymous class are possible ?
+
+Answer :- Only one object of anonymous class is created by JVM .
+
+
+204) Diffference between implementing interface methods using anonymous class and lambda expression
+
+Answer :-  lambda expression is used to define single abstract method from functional interface ,whereas anonymous class can be used to define any no of methods from any interface .
+
+ 
+205) which modifiers we can apply to outer class ?
+
+Answer :- public , final , abstract 
+
+
+206) which modifiers we can apply to inner class ?
+
+Answer :- all modifiers including static 
+  
+
+207) What is enum ? Tell me any one example 
+
+Answer :- enum is a set of constants . e.g. enum weekdays{MONDAY,TUESDAY,WENDSDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY}
+
+
+208) Wrapper class objects are immutable . true / false
+
+Answer :- Yes ,they are immutable like String objects . 
+
+
+209) When is it compulsory to use wrapper class and not primitive type in collection ?
+
+Answer :- when defining type parameter in generic collection .
+
+
+210) what is boxing ? Tell me about Integer.valueOf()
+
+Answer :-  conversion of primitive value into wrapper class object is boxing.
+		
+		int a=10;
+		
+		Integer i =  Integer.valueOf(a); // valueOf() will convert primitive int value to wrapper class Integer object . It's boxing
+		
+		System.out.println(i);
+		
+		// i===> [ 10 toString() ] Integer class object
+		
+		System.out.println(i.toString());
+
+
+211) what is unboxing ? tell me about intValue()
+
+Answer :-  Coversion of wrapper class object into primitive value is called unboxing .
+		
+		Integer i = new Integer(10); // i===>[ 10 intValue() ] Integer class object
+				
+		int b = i.intValue(); // intValue() will give primitive int value from Integer class object . It is unboxing 
+
+		System.out.println(b);
+
+212) what is autoboxing and autounboxing ?
+
+Answer :-  When boxing is done by compiler automatically it is called autoboxing .
+
+int a=10;
+		
+Integer i = a;  // Compiler will convert this statement into :- Integer i = Integer.valueOf(a)  AutoBoxing
+
+
+When unboxing is done by compiler automatically it is called autounboxing .
+
+Integer i = new Integer(10); // i===>[ 10 intValue() ] Integer class object
+		
+int a = i; // Compiler will convert this statement into :- int a = i.intValue()
+		
+
+
+213) what is use of Optioanl class 
+
+Answer :- Optional class object is container for another object . before reading object from this container , we call method isPresent() to ensure that object is present inside optional object and it is not null . this way we avoid NullPointerException .
+
+
+214) what is use of annotations ? tell me different types of annotations ?
+
+Answer :- annotation is way of passing message/information to compiler/JVM/Framwork about some variable/method/class . e.g. using @Override annotation , we inform to compiler that we are overriding parent class method . after this compiler checks this method in parent class , if not found gives error.  annotations are of 3 types :-
+
+1) marker annotation:- It does not contains any member.
+
+			e.g. @interface Override {}
+				
+2) single value annotation :-  It contains single member.
+
+			public @interface MyAnno
+			{
+				int value1();
+			}
+
+3) Multi Value annotation :-  It contains multiple members.
+
+			public @interface MyAnno
+			{
+				int value1();
+				int value2();
+				
+			}
+
+
+215) how to define custom annonation ?
+
+Answer :- To define custom annotations , we use @interface keyword .
+	  		
+			@Target(ElementType.METHOD)
+			@Retention(RetentionPolicy.SOURCE)
+
+			public @interface MyAnno
+			{
+				int value1();
+				int value2();
+				
+			}
+
+
+216) Tell me about @Target annotations ?
+	
+Answer :- @Target annonation is used to define where we can apply annotation . e.g. @Target(ElementType.METHOD)  indicates that @Override can be used for methods only and not for class or variables .
+
+	@Target(ElementType.METHOD)
+	@Retention(RetentionPolicy.SOURCE)
+	public @interface Override 
+	{
+		
+	}
+	
+	
+
+217) what is reflection ? which methods of Class class are used for it ?
+
+Answer :- Reflection is a process of examining or modifying runtime behaviour of a class . It is used to find out which variables and methods are present in any java class ,  at runtime . java.lang.Class contains methods like getDeclaredFields() and getDeclaredMethods() for doing it.
+
+
+218) what is difference between creating object using newInstance() and creating object using new and constructor 
+
+Answer :- when we create object using new and constructor , we must know class name at compile time 
+
+	 e.g. Emp e = new Emp(); Here we know class name is Emp .
+
+	 whereas in newInstance() case , we don't know class name at compile time , we get it at runtime .
+
+	  /* You can pass any class name here and you will get object of that class */
+	
+	static Object getObject(String className) throws Exception
+	{
+		return Class.forName(className).getDeclaredConstructor().newInstance();
+		
+		// newInstance() will give you object of any class , provided that class contains 0 argument constructor / default constructor
+		
+	}
+	
+	
+		System.out.println("Enter class name whose object you want to create :-  ");
+		String name = new Scanner(System.in).next();
+
+		Object o= getObject(name);
+
+
+	
+
+219) why String objects are called String constants ( immutable )
+
+Answer :- String object's content can not be modified means it is constant .
+
+	  final int a=10 ; // integer constant
+	  String s="JBK" ; // string constant
+		
+	  This string object's content JBK can not be changed .
+
+
+
+220) what is advantage of String constant pool ?
+
+Answer :- In SCP , Duplicates objects are not created . hence memory is saved .
+
+
+221) To create String object which are 2 ways ?
+
+Answer :- 1) using String literal :-
+		String s = "JBK";
+
+	  2) using new and Constructor
+		String s = new String("JBK");
+
+222) What is difference between String and StringBuffer ?
+
+Answer :-  String object's content can not be modified means it is constant . Whereas StringBuffer object's content can be modified .
+means String object is immutable and StringBuffer object is mutable.
+
+
+223) what is singleton object ?
+
+Answer:- class whose only one instance is possible is called singleton object .
+
+	
+224) what is factory method ?
+
+Answer:- method which gives object is called factory method . e.g. Calendar.getInstance() . Here getInstance() will give us object of child class of Calendar object . Calendar is a abstract class . It's object not possible . Hence getInstance() will give it's child class object . However we need to know name of that child class . We can define reference of parent class Calendar .
+
+		Calendar  c = Calendar.getInstance();
+
+
+225) what is static import ?
+
+Answer :- static import allow us to import static members from class . Once static members are imported , we can use them directly without using class name also .
+
+e.g. import static java.lang.System.out;
+
+     out.println("java is easy");
+
+
+226) How to schedule a task in java ?
+
+Answer :- using TimerTask class we define a task to schedule . Then we give this task to Timer class object . Timer class contains schedule() method which accepts taks object and Date object .
+
+
+227) What is thread ? 
+
+Answer :- Thread is a part of a process . process means any program in execution . Java program in execution is a process and it contains one thread called main . we can define more threads using Thread class . Thread is a like worker . we submit job to worker and worker perform that job . Similarly in java , we define job in run() method and submit that job to thread and thread executes that job . Multiple threads executes same or different job simultenously . 
+
+
+228) 2 different ways of defining Job in multithreading ?
+
+Answer :- we can define job in run() of Thread class or we can define job in run() of runnable interface .
+
+	  class ThreadDemo extends Thread
+          {
+		public void run()
+		{
+			// define job here	
+		}
+          }
+
+	  class MyJob implements Runnable
+	  {
+		public void run()
+		{
+			// define job here	
+		}
+			
+	  }
+
+229) Can we call run() explicitely ?
+
+	Yes . But parallel execution of threads will not be there .
+
+
+230) Can we overload run() of runnable interface ?
+
+	Yes . but run() with no argument is called automatically . other methods we need to call manually .
+
+
+231) Why multithreading should be used ?
+
+Answer :- when we want to have parallel processing we should use multithreading .
+
+
+232) what are 2 different ways of achieving Thread Synchronization    
+
+Answer :- 1. synchronized method 2. synchronized block .  synchronized block is best way as it makes only that code synchronized which is updating object and this code will be executed one after another by threads . However rest of the code from run() will be executed simultenously . Hence we get parallel processing also . However when we make run() synchronized , all statements from method becomes synchronized and hence are executed one after another . no parallel processing .
+
+
+233) what is thread safe object ?
+
+Answer :- Synchronized objects are thread safe object because they give consistent result even if multiple thread are there . 
+
+
+234) Difference between sleep() and wait()
+
+Answer:-sleep() method is used to pause execution of thread for particular time , wheras due to wait() thread goes into waiting state and wait gets over when notify() is called . sleep() does not release lock whereas wait() releases the lock .
+
+
+235) difference between notofy() and notifyAll()
+
+Answer:- notify() is used to send notification to single waiting thread and notifyAll() is used to send notification to all waiting threads.
+
+
+236) When we call sleep() inside run() , we have to write try and catch compulsory . Why can't we delegate responsibility of exception handling 
+     using throws in this case ?
+
+Answer :- Because if write public void run() throws InterruptedException then compiler will give error as while overriding a method we can't throws exception if method is not declared with throws in parent type .
+
+
+	interface Runnable
+	{
+		 void run();
+	}
+
+	public void run() throws InterruptedException   // it will give compile time error
+	{
+		Thread.sleep(1000);  
+	}
+
+
+237) tell me about different rules regarding exception  which we must follow in method overridng ?
+
+Answer :- overriden method may throws same exception , child exception or no exception but parent exception not possile .
+
+
+238) what is thread pool ?
+
+Answer :- Thread pool consist of group of threads . These threads are reused in such way that many tasks are completed using less number of 	  threads .
+
+
+239) can we have empty java file ? 
+
+Answer :- yes , empty java file is valid java file .
+
+
+240) Can we have different name for public class and file name ?
+
+Answer :- No . public class name and file name must be same.
+	
+
+241) In one java file how many public classes we can write ?
+	
+Answer :- Only One public class is allowd in one java file as public class name and java file name must be same . However we can write any number of non-public classes in one java file . writing many classes in one java file is not recommended approach .
+
+
+242) How to pass program arguments ?
+
+Answer :- select run configuration from run menu , inside arguments tab specify arguments separated by space . using this program arguments , JVM creates String[] , which it passes to main() method . If no arguments are passed , JVM still create an array but it is empty array .
+
+
+243) what is bytecode ? 
+
+Answer :- when java file is compiled by compiler , .class file is generated . This .class file contains special intermediate code which is called as bytecode . This bytecode is given to JVM which converts it into machine code specific to machine .
+
+
+244) which folder of java project consist compiled java classes ?
+
+Answer :- bin folder contains all .class files of classes , interfaces , enums and annonations.
+
+
+245) why java is called simple language ?
+
+Answer :-  java is called simple language as :-
+
+	 1) It does not have explicit use of pointers
+	 2) Java has provided Collection Framework which provides many readymade methods to handle group of objects .
+	 3) Java has mutiple APIs to make complex task easy . e.g. Java has given JDBC API to perform database operations .
+	 4) Java is fully object oriented language . It supports all object oriented concepts .
+	 5) Java follows all standard design pattern like MVC , using which web application development has become very easy and organised.
+	 6) Due to , JEE frameowrk like Hibernate , Spring , very less code is required to develop complex application
+
+
+246) What will be the output of below program ?
+
+		int[] a1={10,20}
+		int[] a2={10,20}
+
+		sop(a1==a2)
+		sop(a1.equals(a2))
+
+Answer :- false as contents of array are not compared here , but address of array is stored which is present in a1 & a2 .
+
+
+247) ArrayList<?> and ArrayList<? extends Object> are same ?
+
+Answer :- Yes as both will accept any type of object inside ArrayList 
+
+
+248) final , finally and finalize difference .
+
+Answer :- final is keyword , finally is block and finalize is method . final is used to declare constant . finally block is used to close resources . finalize() method is called when associated object is destroyed by garbage collector .
+
+
+249) Which is object is eligible for garbage collection ?
+
+Answer :- object which is not pointed by any reference is eligible for garbage collection.
+
+
+250) Can we request JVM to run garbage collector ?
+
+Answer :- using System.gc() we can request JVM to run garbage collector .
+
+
+
